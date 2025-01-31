@@ -14,26 +14,42 @@ class Memo {
         this.store = {};
     }
 
-    private createKey(m: number, n: number): string {
-        return `${m},${n}`;
+    /**
+     * given that gridTraveler(m, n) == gridTraveler(n, m) the function should return two keys, a key and an
+     * alternate key, when given m and n
+     * @param m a dimension from the grid
+     * @param n another dimension from the grid
+     * @private
+     */
+    private createKey(m: number, n: number): [key: string, alternateKey: string] {
+        return [`${m},${n}`, `${n},${m}`];
     }
 
+    /**
+     * returns true if the key or alternate key formed from m and n exists.
+     * @param m a dimension of the grid
+     * @param n another dimension of the grid
+     */
     has(m: number, n: number): boolean {
-        const key = this.createKey(m, n);
-        const alternateKey = this.createKey(n, m);
+        const [key, alternateKey] = this.createKey(m, n);
         return key in this.store || alternateKey in this.store;
     }
 
+    /**
+     * Sets the result to a key formed from m and n as long as no alternate key of m and n exists
+     * @param m
+     * @param n
+     * @param result
+     */
     set(m: number, n: number, result: number) {
-        if (this.has(n, m)) return; // the result of m x n is the same as n x m
+        if (this.has(n, m)) return; // check to see if the key or an alternate key exists
 
-        const key = this.createKey(m, n);
+        const [key] = this.createKey(m, n);
         this.store[key] = result;
     }
 
     get(m: number, n: number): number {
-        const key = this.createKey(m, n);
-        const alternateKey = this.createKey(n, m);
+        const [key, alternateKey] = this.createKey(m, n);
         return this.store[key] ?? this.store[alternateKey];
     }
 
