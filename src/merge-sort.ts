@@ -17,7 +17,11 @@ function split(arr: number[]): [number[], number[]] {
  * @param fromArr The array from which elements are picked
  * @param toArr The array to which elements are added
  */
-function addRemainingFrom(startIdx: number, fromArr: number[], toArr: number[]) {
+function addRemainingFrom(
+  startIdx: number,
+  fromArr: number[],
+  toArr: number[],
+) {
   for (let i = startIdx; i < fromArr.length; i++) {
     toArr.push(fromArr[i]);
   }
@@ -64,7 +68,6 @@ function mergeSort(arr: number[]): number[] {
 
   const [left, right] = split(arr);
   return merge(mergeSort(left), mergeSort(right));
-
 }
 
 const successMessage = 'Merge sort passed ✅';

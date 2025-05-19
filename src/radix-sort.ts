@@ -60,7 +60,7 @@ function radixSort(arr: number[]): number[] {
     arr.forEach((num) => {
       const digitAtPos = getDigit(num, k);
       digitBuckets[digitAtPos].push(num);
-    })
+    });
 
     // replace the contents of arr with the contents of the flattened bucket
     digitBuckets.flat().forEach((val, idx) => {

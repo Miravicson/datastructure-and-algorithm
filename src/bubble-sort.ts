@@ -19,11 +19,9 @@ function bubbleSort(arr: number[]): number[] {
   return arr;
 }
 
-const successMessage = "Bubble sort passed ✅";
-const failureMessage = "Bubble sort failed ❌";
-
-
+const successMessage = 'Bubble sort passed ✅';
+const failureMessage = 'Bubble sort failed ❌';
 
 assertEqual(bubbleSort([5, 2, 1]), [1, 2, 5], failureMessage);
 assertEqual(bubbleSort([5, 4, 3, 2, 1]), [1, 2, 3, 4, 5], failureMessage);
-console.log(successMessage)
+console.log(successMessage);

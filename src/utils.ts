@@ -1,4 +1,4 @@
-import assert from "node:assert";
+import assert from 'node:assert';
 
 export function range(stop: number): number[];
 export function range(start: number, stop: number): number[];
@@ -28,7 +28,9 @@ export function range(start: number, stop?: number, step?: number) {
  * @param array sorted array
  * @returns the number of unique items in a sorted array
  */
-export function countUnique<T extends string | number | boolean>(array: T[]): number {
+export function countUnique<T extends string | number | boolean>(
+  array: T[],
+): number {
   let left = 0;
   let right = 0;
   let uniqueCount = 0;
@@ -81,7 +83,7 @@ export function swap<T>(arr: T[], i: number, j: number): void {
  */
 export function checkIfArrEqual<T extends any[]>(a: T, b: T): boolean {
   if (a.length !== b.length) {
-    return(false)
+    return false;
   }
   let result = true;
   for (let i = 0; i < a.length; i++) {
@@ -108,5 +110,5 @@ export function assertEqual<T extends any[]>(a: T, b: T, message = '') {
  * @param message message to be displayed if assertion fails
  */
 export function assertNotEqual<T extends any[]>(a: T, b: T, message = '') {
-  assert(!checkIfArrEqual(a, b), message)
+  assert(!checkIfArrEqual(a, b), message);
 }

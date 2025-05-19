@@ -1,4 +1,4 @@
-import { assertEqual, swap } from "./utils";
+import { assertEqual, swap } from './utils';
 
 function selectionSort(arr: number[]): number[] {
   /// selects the minimum and inserts it at the beginning in each pass
@@ -18,9 +18,9 @@ function selectionSort(arr: number[]): number[] {
   return arr;
 }
 
-const successMessage = "Selection sort passed ✅";
-const failureMessage = "Selection sort failed ❌";
+const successMessage = 'Selection sort passed ✅';
+const failureMessage = 'Selection sort failed ❌';
 
 assertEqual(selectionSort([5, 2, 1]), [1, 2, 5], failureMessage);
 assertEqual(selectionSort([5, 4, 3, 2, 1]), [1, 2, 3, 4, 5], failureMessage);
-console.log(successMessage)
+console.log(successMessage);
