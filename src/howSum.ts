@@ -8,23 +8,21 @@ function howSum(
   targetSum: number,
   nums: number[],
   memo: Record<number, number[] | null> = {},
-) {
+): number[] | null {
   if (targetSum in memo) return memo[targetSum];
   if (targetSum === 0) return [];
   if (targetSum < 0) return null;
 
-  let result: number[] | null = null;
-
   for (const num of nums) {
     const remainder = targetSum - num;
-    const temp = howSum(remainder, nums, memo);
-    if (temp !== null) {
-      result = [...temp, num];
-      break;
+    const remainderResult = howSum(remainder, nums, memo);
+    if (remainderResult !== null) {
+      memo[targetSum] = [...remainderResult, num];
+      return memo[targetSum];
     }
   }
-  memo[targetSum] = result;
-  return result;
+  memo[targetSum] = null;
+  return null;
 }
 
 const successMessage = 'howSum passed ✅';
@@ -34,9 +32,13 @@ const test = testFunc({
   validate: (result, expected, args) => {
     console.log(result);
     if (result === null && expected === null) return true;
-    const resultSum = result.reduce((acc, i) => acc + i, 0);
-    const targetSum = args[0];
-    return resultSum === targetSum;
+    if (result) {
+      const resultSum = result.reduce((acc, i) => acc + i, 0);
+      const targetSum = args[0];
+      return resultSum === targetSum;
+    }
+
+    return false;
   },
 });
 

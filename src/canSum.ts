@@ -18,17 +18,18 @@ function canSum(
     return false;
   }
 
-  let result = false;
+
 
   for (const num of nums) {
     const remainder = targetSum - num;
-    result = canSum(remainder, nums);
+    const result = canSum(remainder, nums, memo);
     if (result) {
-      break;
+      memo[targetSum] = true;
+      return true;
     }
   }
-  memo[targetSum] = result;
-  return result;
+  memo[targetSum] = false;
+  return false;
 }
 
 const successMessage = 'canSum passed ✅';

@@ -1,4 +1,3 @@
-
 class CNode<T> {
   constructor(
     public val: T,
@@ -99,27 +98,6 @@ class LL<T> {
     return current;
   }
 
-  insert(idx: number, val: T) {
-    if (idx == 0) {
-      return this.unshift(val);
-    }
-
-    if (idx == this.length - 1) {
-      return this.push(val);
-    }
-    const preNode = this.get(idx - 1);
-
-    if (preNode === null) {
-      return this;
-    }
-
-    const newNode = new CNode(val);
-    newNode.next = preNode.next;
-    preNode.next = newNode;
-    this.length++;
-    return this;
-  }
-
   set(idx: number, val: T): boolean {
     const optionalNode = this.get(idx);
     if (!optionalNode) {
@@ -128,6 +106,50 @@ class LL<T> {
 
     optionalNode.val = val;
     return true;
+  }
+
+  insert(idx: number, val: T) {
+    if (idx == 0) {
+      this.unshift(val);
+      return true;
+    }
+
+    if (idx === this.length) {
+      this.push(val);
+      return true;
+    }
+    const preNode = this.get(idx - 1);
+
+    if (preNode === null) {
+      return false;
+    }
+
+    const newNode = new CNode(val);
+    newNode.next = preNode.next;
+    preNode.next = newNode;
+    this.length++;
+    return true;
+  }
+
+  remove(idx: number): CNode<T> | null {
+    if (idx === 0) {
+      return this.shift();
+    }
+
+    if (idx === this.length - 1) {
+      return this.pop();
+    }
+
+    const preNode = this.get(idx - 1);
+    if (!preNode) {
+      return null;
+    }
+    const node = preNode.next;
+    preNode.next = node!.next;
+    node!.next = null;
+
+    this.length--;
+    return node;
   }
 
   traverse() {
@@ -153,12 +175,9 @@ class LL<T> {
 const ll = new LL();
 
 ll.push(1).push(2).push(3).unshift(5);
+console.log(ll.traverse())
 
-console.log(ll.traverse());
-ll.set(1, 2);
-console.log(ll.traverse());
-console.log(ll.tail);
-ll.set(ll.length - 1, 20);
-console.log(ll.traverse());
-console.log(ll.tail);
-console.log(ll.head);
+console.log(ll.remove(ll.length - 1))
+console.log(ll.traverse())
+console.log(ll.remove(1))
+console.log(ll.traverse())
