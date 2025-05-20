@@ -3,7 +3,7 @@
  */
 import { testFunc } from './testFunc';
 
-function canSum(
+export function canSum(
   targetSum: number,
   nums: number[],
   memo: Record<number, boolean> = {},
