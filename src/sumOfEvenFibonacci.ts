@@ -1,10 +1,10 @@
-function fib(n: number, memo: Record<number, number> = {}): number {
+function fib2(n: number, memo: Record<number, number> = {}): number {
   if (n in memo) {
     return memo[n];
   }
   if (n < 2) return 1;
 
-  const result = fib(n - 2, memo) + fib(n - 1, memo);
+  const result = fib2(n - 2, memo) + fib2(n - 1, memo);
   memo[n] = result;
   return result;
 }
@@ -12,16 +12,16 @@ function fib(n: number, memo: Record<number, number> = {}): number {
 function* fibGen(memo: Record<number, number>) {
   let n = 1;
   while (true) {
-    yield fib(n, memo);
+    yield fib2(n, memo);
     n++;
   }
 }
 
 function sumFib() {
-  let memo: Record<number, number> = {};
+  const memo: Record<number, number> = {};
 
   let currentFib = 2;
-  let fibIter = fibGen(memo);
+  const fibIter = fibGen(memo);
 
   let result = 0n;
   while (currentFib < 4_000_000) {

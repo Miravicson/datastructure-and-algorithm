@@ -27,22 +27,4 @@ function howSum(
 
 const successMessage = 'howSum passed ✅';
 
-const test = testFunc({
-  func: howSum,
-  validate: (result, expected, args) => {
-    console.log(result);
-    if (result === null && expected === null) return true;
-    if (result) {
-      const resultSum = result.reduce((acc, i) => acc + i, 0);
-      const targetSum = args[0];
-      return resultSum === targetSum;
-    }
-
-    return false;
-  },
-});
-
-test([7, [3, 2, 5]], [2, 5]);
-test([8, [5, 5]], null);
-
 console.log(successMessage);

@@ -6,13 +6,13 @@
  * If there is a tie for the shortest combination, you may return any one of the shortest
  */
 
-function bestSum(targetSum: number, numbers: number[]): number[] | null {
+function bestSumTab(targetSum: number, numbers: number[]): number[] | null {
   const table: (number[] | null)[] = Array(targetSum + 1).fill(null);
   table[0] = [];
 
   for (let i = 0; i <= targetSum; i++) {
     if (Array.isArray(table[i])) {
-      for (let num of numbers) {
+      for (const num of numbers) {
         const nextCellIdx = i + num;
         if (nextCellIdx <= targetSum) {
           const tableContents = table[i]!;
@@ -29,5 +29,5 @@ function bestSum(targetSum: number, numbers: number[]): number[] | null {
   return table[targetSum];
 }
 
-console.log(bestSum(7, [5, 3, 4, 7])); // [7]
-console.log(bestSum(8, [2, 3, 5])); // [3, 5]
+console.log(bestSumTab(7, [5, 3, 4, 7])); // [7]
+console.log(bestSumTab(8, [2, 3, 5])); // [3, 5]

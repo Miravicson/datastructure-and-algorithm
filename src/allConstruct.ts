@@ -16,8 +16,8 @@ function allConstruct(
     return [[]];
   }
 
-  let result: string[][] = [];
-  for (let word of wordBank) {
+  const result: string[][] = [];
+  for (const word of wordBank) {
     if (target.startsWith(word)) {
       const suffix = target.slice(word.length);
       const suffixWays = allConstruct(suffix, wordBank);
@@ -52,9 +52,23 @@ console.log(
 ); // []
 
 console.log(
-  allConstruct('enterapotentpot', ['a', 'p', 'ent', 'enter', 'ot', 'o', 't']),
+  allConstruct('enterapotentpot', [
+    'a',
+    'p',
+    'ent',
+    'enter',
+    'ot',
+    'o',
+    't',
+  ]),
 ); // 4
 
 console.log(
-  allConstruct('aaaaaaaaaaaaaaaaaaaaaaaz', ['a', 'aa', 'aaa', 'aaaa', 'aaaaa']),
+  allConstruct('aaaaaaaaaaaaaaaaaaaaaaaz', [
+    'a',
+    'aa',
+    'aaa',
+    'aaaa',
+    'aaaaa',
+  ]),
 ); //[]

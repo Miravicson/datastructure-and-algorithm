@@ -4,7 +4,7 @@
  * In how many ways can you travel to the goal on a grid with dimensions m * n?
  */
 
-function gridTraveler(m: number, n: number): number {
+function gridTravelerTab(m: number, n: number): number {
   const table = Array(m + 1)
     .fill(null)
     .map(() => Array(n + 1).fill(0));
@@ -27,8 +27,8 @@ function gridTraveler(m: number, n: number): number {
   return table[m][n];
 }
 
-console.log(gridTraveler(1, 1)); // 1
-console.log(gridTraveler(2, 3)); // 3
-console.log(gridTraveler(3, 2)); // 3
-console.log(gridTraveler(3, 3)); // 6
-console.log(gridTraveler(18, 18)); // 2333606220
+console.log(gridTravelerTab(1, 1)); // 1
+console.log(gridTravelerTab(2, 3)); // 3
+console.log(gridTravelerTab(3, 2)); // 3
+console.log(gridTravelerTab(3, 3)); // 6
+console.log(gridTravelerTab(18, 18)); // 2333606220

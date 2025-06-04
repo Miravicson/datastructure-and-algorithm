@@ -47,7 +47,7 @@ function isPalindrome(
 function solve(s: string): string {
   let start = 0;
   let maxLength = 1;
-  let n = s.length;
+  const n = s.length;
 
   const table = Array.from({ length: n }, () => Array(n).fill(false));
   for (let i = 0; i < n; i++) {
@@ -79,3 +79,10 @@ console.log(solve('abcdfgdcba')); // a
 console.log(solve('abacdfgdcaba')); // aba
 console.log(solve('abcddcbazzz')); // abcddcba
 console.log(solve('racecar'));
+console.log(solveRecur('babad')); // bab, aba
+console.log(solveRecur('cbbd')); // bb
+console.log(solveRecur('racecar')); // racecar
+console.log(solveRecur('abcdfgdcba')); // a
+console.log(solveRecur('abacdfgdcaba')); // aba
+console.log(solveRecur('abcddcbazzz')); // abcddcba
+console.log(solveRecur('racecar'));

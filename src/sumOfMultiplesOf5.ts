@@ -1,5 +1,5 @@
 function sumMultiplesOf5Below1000() {
-  let multiples =  new Set<number>()
+  const multiples =  new Set<number>()
   
   for (let i = 3; i < 1000; i+=3) {
     multiples.add(i)

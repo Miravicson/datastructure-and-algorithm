@@ -11,7 +11,7 @@
  * fib(n): 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
  */
 
-function fib(n: number): number {
+function fib2(n: number): number {
   const table = Array.from({ length: n + 1 }, (_, i) => {
     if (i <= 1) {
       return i;
@@ -24,15 +24,15 @@ function fib(n: number): number {
   // }
 
   for (let i = 0; i <= n; i++) {
-    table[i + 1] += table[i]
-    table[i + 2] += table[i]
+    table[i + 1] += table[i];
+    table[i + 2] += table[i];
   }
 
   return table[n];
 }
 
-console.log(fib(6)); // 8
-console.log(fib(7)); // 13
-console.log(fib(8)); // 21
-console.log(fib(50)); // 12486269025
+console.log(fib2(6)); // 8
+console.log(fib2(7)); // 13
+console.log(fib2(8)); // 21
+console.log(fib2(50)); // 12486269025
 

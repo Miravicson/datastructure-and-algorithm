@@ -5,18 +5,23 @@ import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   {
-    files: ['**/*.{js,mjs,cjs,ts}'],
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,tsx}'],
     plugins: { js },
     extends: ['js/recommended'],
   },
   {
-    files: ['**/*.{js,mjs,cjs,ts}'],
-    languageOptions: { globals: globals.browser },
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,tsx}'],
+    languageOptions: {
+      globals: globals.browser,
+      parserOptions: {
+        project: ['./tsconfig.json'],
+      },
+    },
   },
+  ...tseslint.configs.recommended,
   {
-    ...tseslint.configs.recommended,
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,tsx}'],
     rules: {
-      ...tseslint.configs.recommended.rules,
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {
@@ -25,6 +30,13 @@ export default defineConfig([
           caughtErrorsIgnorePattern: '^_',
         },
       ],
+      '@typescript-eslint/no-explicit-any': [
+        'error',
+        {
+          ignoreRestArgs: true,
+        },
+      ],
+      '@typescript-eslint/strict-boolean-expressions': 'error',
     },
   },
 ]);

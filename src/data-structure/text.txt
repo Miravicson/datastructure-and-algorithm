@@ -1,0 +1,77 @@
+
+1. Do you have 3+ years of non-internship professional software development experience? (not including internships, part time jobs, co-ops, professor teaching) If yes, share your years of total SDE work experience –
+Yes, I have over 5 years of non-internship professional software development experience.
+
+a. Can you provide an overview of your current/past role?
+Currently, I serve as Lead Engineer at Bloomers.ng, a healthtech platform, where I lead both frontend and backend engineering efforts, oversee system design, and mentor engineers.
+Previously at Dot, I led the development of a retail health insurance platform. At Nomba (formerly Kudi), I contributed to critical financial systems in a fast-paced fintech environment. Across these roles, I’ve worked extensively with modern technologies including NestJS, PostgreSQL, Redis, RabbitMQ, and Kubernetes.
+
+b. Tell me about some of your daily activities in your current role?
+On a daily basis, I:
+	•	Write and review TypeScript (NestJS, React) code
+	•	Conduct design and architecture reviews
+	•	Lead planning and grooming sessions
+	•	Collaborate cross-functionally with product and design teams
+	•	Mentor junior engineers
+	•	Monitor performance and improve system reliability
+
+⸻
+
+Coding
+
+2. What is your preferred coding language?
+TypeScript
+
+a. What is the percentage of time that you spend coding day to day?
+Approximately 70–80%
+
+b. Do you prefer frontend, backend, or full stack roles?
+I prefer full stack roles, with a strong inclination toward backend and system design.
+
+3. Can you tell me about your experience leading code/design reviews?
+Yes, I’ve led and facilitated code and design reviews across multiple teams. At Bloomers, I implemented a structured review process for all production-bound code. At Dot and Nomba, I reviewed over 200+ PRs across microservices, ensuring adherence to coding standards and design best practices. I also mentored junior engineers on test coverage and architectural decisions, improving team output and reducing post-release defects.
+
+⸻
+
+System Design
+
+4. Do you have 2+ years of non-internship design or architecture experience including design patterns, reliability, and scaling of new and existing systems? If Yes, share your total years of design experience –
+Yes, I have over 3 years of hands-on design and architecture experience.
+
+5. When it comes to high level architectural design, what part of the system architecture are you currently responsible for building? (I.e. new features/components or core architecture)
+I am responsible for both core architecture and new feature design across systems. At Nomba, I led architectural efforts on critical financial services including transaction processing, issue resolution, and accounting exports. I owned the design and maintenance of over five microservices, built with Node.js, MongoDB, Redis, and Elasticsearch, and deployed via Kubernetes on GCP.
+
+Additionally, I independently designed and built a Forex trading platform as a side project, where I implemented wallet services, transaction matching logic, and retry-safe order handling using RabbitMQ. The architecture included service-to-service authentication, NestJS microservices, and PostgreSQL, and handled complex flows like order books, rate integration, and balance management. This project sharpened my expertise in financial systems and high-volume, resilient service design.
+
+At Bloomers, I led the company-wide transition from C# to NestJS, implemented a multi-tenant appointment scheduling system using Node.js and Prisma, and optimized cloud infrastructure to reduce costs by 90%. At Growsurf, I architected backend microservices for asynchronous CSV export pipelines and designed Redis-based algorithms for high-volume email delivery.
+
+a. What percentage of time do you spend on design or architecture day to day?
+Roughly 30–40%
+
+b. Approximately how many users or transactions does the system support?
+Systems I’ve worked on support tens of thousands of users and hundreds of thousands of transactions monthly, with significant peak traffic during operational hours.
+
+c. How much of this project did you lead/drive yourself?
+I led or co-led the majority of core projects. At Bloomers, I spearheaded the cloud migration, design of the scheduling system, and cost optimization efforts. At Dot, I led backend design for a real-time transaction export pipeline and NestJS microservices. At Nomba, I owned multiple microservices, managed code quality, and drove architectural decisions for backend performance improvements.
+
+⸻
+
+Housekeeping
+
+1. Are you actively interviewing with other companies? If so, what stage of the interview process are you in with those companies? Do you have any offers pending?
+No, I am not interviewing elsewhere.
+
+2. What is your timeline for making a final decision on an offer? Are there any circumstances you know of that may prevent you from accepting an offer with Amazon?
+My timeline for making a final decision is within the next 3–4 weeks. I have no circumstances that would prevent me from accepting an offer with Amazon.
+
+3. Do you need, or will you need in the future, any immigration-related support or sponsorship from Amazon in order to begin or continue employment with Amazon?
+No, I do not currently need immigration-related support.
+
+4. What is your most recent citizenship?
+Nigerian
+
+5. Where are you currently located?
+Lagos, Nigeria
+
+6. This role is an onsite role. Are you open to relocation to Toronto or Vancouver or any other location of your choice?
+Yes, I am open to relocation.

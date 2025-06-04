@@ -16,7 +16,7 @@ function canConstruct(
     return true;
   }
 
-  for (let word of wordBank) {
+  for (const word of wordBank) {
     if (target.startsWith(word)) {
       const suffix = target.slice(word.length);
       const result = canConstruct(suffix, wordBank, memo);

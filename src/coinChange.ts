@@ -20,7 +20,7 @@ function coinChange(
 
   let shortestCombination = -1;
 
-  for (let coin of coins) {
+  for (const coin of coins) {
     const resultCombo = coinChange(amount - coin, coins, memo);
 
     if (resultCombo >= 0) {

@@ -81,7 +81,7 @@ export function swap<T>(arr: T[], i: number, j: number): void {
  * @param b array b
  * @returns a boolean
  */
-export function checkIfArrEqual<T extends any[]>(a: T, b: T): boolean {
+export function checkIfArrEqual<T extends unknown[]>(a: T, b: T): boolean {
   if (a.length !== b.length) {
     return false;
   }
@@ -98,7 +98,7 @@ export function checkIfArrEqual<T extends any[]>(a: T, b: T): boolean {
  * @param b array b
  * @param message [optional] assertion message to be displayed if assertion fails
  */
-export function assertEqual<T extends any[]>(a: T, b: T, message = '') {
+export function assertEqual<T extends Array<unknown>>(a: T, b: T, message = '') {
   assert(checkIfArrEqual(a, b), message);
 }
 
@@ -109,6 +109,6 @@ export function assertEqual<T extends any[]>(a: T, b: T, message = '') {
  * @param b array b
  * @param message message to be displayed if assertion fails
  */
-export function assertNotEqual<T extends any[]>(a: T, b: T, message = '') {
+export function assertNotEqual<T extends Array<unknown>>(a: T, b: T, message = '') {
   assert(!checkIfArrEqual(a, b), message);
 }

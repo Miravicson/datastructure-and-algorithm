@@ -12,7 +12,7 @@ function howSum(targetSum: number, numbers: number[]): number[] | null {
 
   for (let i = 0; i <= targetSum; i++) {
     if (Array.isArray(table[i])) {
-      for (let num of numbers) {
+      for (const num of numbers) {
         const nexCellIdx = i + num;
         if (nexCellIdx <= targetSum) {
           const tableContents = table[i];

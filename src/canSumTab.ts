@@ -13,7 +13,7 @@ function canSum(targetSum: number, numbers: number[]): boolean {
 
   for (let i = 0; i <= targetSum; i++) {
     if (table[i]) {
-      for (let num of numbers) {
+      for (const num of numbers) {
         const nextCellIdx = i + num;
         if (nextCellIdx <= targetSum) {
           table[nextCellIdx] = true;
