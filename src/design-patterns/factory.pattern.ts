@@ -1,22 +1,31 @@
 interface Button {
   render(): string;
+  onClick(): void;
+}
+
+abstract class AbstractButton implements Button {
+  abstract render(): string;
+
+  onClick(): void {
+    console.log(`Clicked ${this.constructor.name} button`);
+  }
 }
 
 type OsType = 'windows' | 'web' | 'mac';
 
-export abstract class Dialog {
-  abstract createButton(): Button;
-}
-
-export class WindowsButton implements Button {
+export class WindowsButton extends AbstractButton {
   render(): string {
     const message = `The windows button is rendering`;
     console.log(message);
     return message;
   }
+
+  onClick(): void {
+    console.log(`Clicked ${this.constructor.name} button`);
+  }
 }
 
-export class HtmlButton implements Button {
+export class HtmlButton extends AbstractButton {
   render(): string {
     const message = `The html button is rendering`;
     console.log(message);
@@ -24,12 +33,31 @@ export class HtmlButton implements Button {
   }
 }
 
-export class MacButton implements Button {
+export class MacButton extends AbstractButton {
   render(): string {
     const message = `The mac button is rendering`;
     console.log(message);
     return message;
   }
+}
+
+export abstract class Dialog {
+  button: Button | undefined;
+
+  render() {
+    this.button = this.createButton();
+    this.button.render();
+  }
+
+  click() {
+    if (!this.button) {
+      this.render();
+    }
+
+    this.button?.onClick();
+  }
+
+  abstract createButton(): Button;
 }
 
 export class WindowsDialog extends Dialog {
@@ -73,8 +101,11 @@ export class Client {
   }
 
   render() {
-    const button: Button = this.dialog.createButton();
-    return button.render();
+    return this.dialog.render();
+  }
+
+  click() {
+    return this.dialog.click();
   }
 }
 
@@ -85,3 +116,4 @@ const macClient = new Client('mac');
 const clients: Client[] = [windowsClient, webClient, macClient];
 
 clients.forEach((client) => client.render());
+clients.forEach((client) => client.click());

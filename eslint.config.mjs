@@ -22,6 +22,13 @@ export default defineConfig([
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,tsx}'],
     rules: {
+      'prefer-const': [
+        'warn',
+        {
+          destructuring: 'any',
+          ignoreReadBeforeAssign: false,
+        },
+      ],
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {
