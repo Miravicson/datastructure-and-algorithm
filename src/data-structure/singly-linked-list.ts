@@ -152,6 +152,25 @@ class LL<T> {
     return node;
   }
 
+  reverse() {
+    if (!this.head) {
+      return;
+    }
+
+    let node: CNode<T> | null = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    let prev: CNode<T> | null = null;
+    let next: CNode<T> | null;
+
+    for (let i = 0; i < this.length; i++) {
+      next = node!.next;
+      node!.next = prev;
+      prev = node;
+      node = next;
+    }
+  }
+
   traverse() {
     if (!this.head) {
       return `${this.constructor.name}:[empty]`;
@@ -175,9 +194,14 @@ class LL<T> {
 const ll = new LL();
 
 ll.push(1).push(2).push(3).unshift(5);
-console.log(ll.traverse())
+console.log(ll.traverse());
 
-console.log(ll.remove(ll.length - 1))
+console.log(ll.remove(ll.length - 1));
+console.log(ll.traverse());
+console.log(ll.remove(1));
+console.log(ll.traverse());
+
+ll.push(2).push(3).push(4).push(1);
 console.log(ll.traverse())
-console.log(ll.remove(1))
+ll.reverse()
 console.log(ll.traverse())
