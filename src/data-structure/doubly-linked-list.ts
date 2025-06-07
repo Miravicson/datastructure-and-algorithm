@@ -176,7 +176,7 @@ class DoublyLinkedList<T> {
     }
 
     let str = `${this.constructor.name}:[`;
-    let curr: CNode<T> | null = this.head;
+    let curr: DNode<T> | null = this.head;
     while (curr) {
       str += `${curr.val}`;
       curr = curr.next;
@@ -217,6 +217,6 @@ dd.set(3, 2);
 console.log(dd.traverse());
 dd.insert(1, 3);
 console.log(dd.traverse());
-node = dd.remove(0)
-console.log(node, node?.next, node?.prev)
-console.log(dd.traverse())
+node = dd.remove(0);
+console.log(node, node?.next, node?.prev);
+console.log(dd.traverse());

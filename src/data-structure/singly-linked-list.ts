@@ -5,7 +5,7 @@ class CNode<T> {
   ) {}
 }
 
-class LL<T> {
+export class LinkedList<T> implements Iterable<T> {
   head: CNode<T> | null;
   tail: CNode<T> | null;
   length: number;
@@ -171,7 +171,15 @@ class LL<T> {
     }
   }
 
-  traverse() {
+  *[Symbol.iterator](): Iterator<T> {
+    let current: CNode<T> | null = this.head;
+    for (let i = 0; i < this.length; i++) {
+      yield current!.val;
+      current = current!.next;
+    }
+  }
+
+  traverseOld() {
     if (!this.head) {
       return `${this.constructor.name}:[empty]`;
     }
@@ -189,19 +197,34 @@ class LL<T> {
     }
     return str;
   }
+
+  traverse() {
+    if (this.length === 0) {
+      return `${this.constructor.name}:[empty]`;
+    }
+    let str = `${this.constructor.name}:[`;
+
+    for (const item of this) {
+      str += `${item} -> `;
+    }
+    str = str.slice(0, -4) + `]`;
+    return str;
+  }
 }
 
-const ll = new LL();
+const ll = new LinkedList();
 
-ll.push(1).push(2).push(3).unshift(5);
-console.log(ll.traverse());
+// ll.push(1).push(2).push(3).unshift(5);
+// console.log(ll.traverse());
 
-console.log(ll.remove(ll.length - 1));
-console.log(ll.traverse());
-console.log(ll.remove(1));
-console.log(ll.traverse());
+// console.log(ll.remove(ll.length - 1));
+// console.log(ll.traverse());
+// console.log(ll.remove(1));
+// console.log(ll.traverse());
 
-ll.push(2).push(3).push(4).push(1);
-console.log(ll.traverse())
-ll.reverse()
-console.log(ll.traverse())
+// ll.push(2).push(3).push(4).push(1);
+// console.log(ll.traverse());
+// ll.reverse();
+// console.log(ll.traverse());
+
+
