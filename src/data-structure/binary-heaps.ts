@@ -37,10 +37,52 @@ class MaxBinaryHeap<T> {
     }
   }
 
+  private downHeap() {
+    let currIdx = 0;
+    let [firstChild, secondChild] = this.getChildIdx(currIdx);
+    while (currIdx < this.size) {
+      if (firstChild >= this.size) {
+        break;
+      }
+
+      if (secondChild >= this.size) {
+        if (this.values[currIdx] < this.values[firstChild]) {
+          this.swapAt(currIdx, firstChild);
+        }
+        break;
+      }
+
+      const childIdxToSwap =
+        this.values[firstChild] > this.values[secondChild]
+          ? firstChild
+          : secondChild;
+
+      if (this.values[currIdx] >= this.values[childIdxToSwap]) {
+        break;
+      }
+
+      this.swapAt(currIdx, childIdxToSwap);
+      currIdx = childIdxToSwap;
+      [firstChild, secondChild] = this.getChildIdx(currIdx);
+    }
+  }
+
   insert(val: T): MaxBinaryHeap<T> {
     this.values.push(val);
     this.bubbleUp();
     return this;
+  }
+
+  removeMax(): T | undefined {
+    if (this.size === 0) return;
+    this.swapAt(0, this.size - 1);
+    const result = this.values.pop();
+    this.downHeap();
+    return result;
+  }
+
+  clear(): void {
+    this.values = [];
   }
 
   dfsPreOrder() {
@@ -70,3 +112,12 @@ const heap = new MaxBinaryHeap<number>();
 
 heap.insert(10).insert(20).insert(5).insert(17).insert(9).insert(45).insert(1);
 console.log(heap.dfsPreOrder());
+const maxValue = heap.removeMax();
+console.log(maxValue, heap.dfsPreOrder());
+heap.clear();
+console.log('heap is cleared', heap.dfsPreOrder());
+
+heap.insert(20);
+console.log(heap);
+console.log(heap.removeMax(), heap.dfsPreOrder());
+console.log(heap.removeMax(), heap.dfsPreOrder());
