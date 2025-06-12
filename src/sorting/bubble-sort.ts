@@ -1,4 +1,4 @@
-import { assertEqual, swap } from './utils';
+import { assertEqual, swap } from '../utils';
 
 function bubbleSort(arr: number[]): number[] {
   /// bubbles the maximum to the top at each pass

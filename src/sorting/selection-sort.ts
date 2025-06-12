@@ -1,4 +1,4 @@
-import { assertEqual, swap } from './utils';
+import { assertEqual, swap } from '../utils';
 
 function selectionSort(arr: number[]): number[] {
   /// selects the minimum and inserts it at the beginning in each pass

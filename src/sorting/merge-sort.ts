@@ -1,4 +1,4 @@
-import { assertEqual } from './utils';
+import { assertEqual } from '../utils';
 
 /**
  * Splits an array approximately in half and returns the result as elements

@@ -1,4 +1,4 @@
-import { assertEqual, swap } from './utils';
+import { assertEqual, swap } from '../utils';
 
 function insertionSort(arr: number[]): number[] {
   /// good for sorting streamed data

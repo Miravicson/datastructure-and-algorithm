@@ -1,4 +1,4 @@
-import { swap } from './utils';
+import { swap } from '../utils';
 
 function pivot(arr: number[], startIdx = 0, endIdx = arr.length - 1): number {
   let pivotIdx = startIdx;
@@ -12,6 +12,7 @@ function pivot(arr: number[], startIdx = 0, endIdx = arr.length - 1): number {
   }
 
   swap(arr, startIdx, pivotIdx);
+  console.log(pivotIdx, arr)
   return pivotIdx;
 }
 
@@ -27,4 +28,8 @@ function quickSort(arr: number[], left = 0, right = arr.length - 1) {
   return arr;
 }
 
-console.log(quickSort([4, 6, 9, 1, 2, 5]));
+// console.log(quickSort([4, 6, 9, 1, 2, 5]));
+console.log(quickSort([4, 2, 3]))
+// [4, 2, 3] = sIdx = 0; i = 0; pidx =0
+// [2, 4, 3] = sIdx = 0; i = 1; pidx = 1;
+// [2, 3, 4] = sIdx = 0; i = 2; pidx = 2;
