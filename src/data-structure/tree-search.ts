@@ -114,9 +114,13 @@ export class TreeSearch {
 
     while (!store.isEmpty()) {
       const node = store.remove();
-      visited.push(node!.value);
-      if (node!.right) store.add(node!.right);
-      if (node!.left) store.add(node!.left);
+      if (node != null) {
+        visited.push(node!.value);
+        if (node.right) store.add(node.right);
+        if (node.left) store.add(node.left);
+      } else {
+        break;
+      }
     }
 
     return visited;
@@ -205,6 +209,6 @@ tree.insert(10).insert(6).insert(15).insert(3).insert(8).insert(20);
 
 console.log(TreeSearch.bfs(tree));
 console.log(TreeSearch.dfs(tree));
-console.log("Preorder",TreeSearch.dfsPreOrder(tree));
-console.log("In order", TreeSearch.dfsInOrder(tree));
-console.log("Post order", TreeSearch.dfsPostOrder(tree));
+console.log('Preorder', TreeSearch.dfsPreOrder(tree));
+console.log('In order', TreeSearch.dfsInOrder(tree));
+console.log('Post order', TreeSearch.dfsPostOrder(tree));
