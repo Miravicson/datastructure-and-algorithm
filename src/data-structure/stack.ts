@@ -120,7 +120,7 @@ class StackNode<T> {
   ) {}
 }
 
-class Stack3<T> implements IStack<T> {
+export class Stack3<T> implements IStack<T> {
   first: StackNode<T> | null;
   last: StackNode<T> | null;
   length: number;
@@ -168,6 +168,10 @@ class Stack3<T> implements IStack<T> {
 
   peek(): T | undefined {
     return this.first?.value ?? undefined;
+  }
+
+  isEmpty() {
+    return this.length === 0;
   }
 
   *[Symbol.iterator](): Iterator<T> {

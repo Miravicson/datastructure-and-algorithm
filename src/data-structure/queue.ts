@@ -62,6 +62,10 @@ export class Queue<T> implements IQueue<T>, Iterable<T> {
     return this;
   }
 
+  isEmpty(): boolean {
+    return this.size === 0;
+  }
+
   *[Symbol.iterator](): Iterator<T> {
     let current = this.first;
 
