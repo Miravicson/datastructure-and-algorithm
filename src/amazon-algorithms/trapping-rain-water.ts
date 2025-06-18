@@ -48,3 +48,4 @@ const testCases = [
 testCases.forEach((input, i) => {
   console.log(`Test Case #${i + 1}:`, trap(input));
 });
+export {}
